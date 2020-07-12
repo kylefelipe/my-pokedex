@@ -14,8 +14,10 @@ function App() {
         <p>
           1st Gen!
         </p>
-        {data.map(pokemon => <Pokecard {...pokemon}/>)}
       </header>
+      <section className="pokecards-container">
+        {data.map(pokemon => <Pokecard {...pokemon}/>)}
+      </section>
     </div>
   );
 }
