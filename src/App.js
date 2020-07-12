@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import Pokemon from './Pokemon';
+import Pokemon from './component/Pokemon';
 import data from './data';
-import Pokecard from './Pokecard';
+import Pokecard from './component/Pokecard';
 
 function App() {
   return (

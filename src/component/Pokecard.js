@@ -8,7 +8,7 @@ class Card extends React.Component {
       <div className="card">
         <div className="poke-name">{this.props.name}</div>
         <ImagePokemon source={this.props.image} name={this.props.name}/>
-
+        
       </div>
     )
   }
