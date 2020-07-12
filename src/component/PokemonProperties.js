@@ -3,24 +3,24 @@ import React from 'react';
 class PokemonProperties extends React.Component {
   render() {
     return (
-      <ul className="poke-properties">
-        <li key="name">
-          <em>Name: </em>
-          <span>{this.props.name}</span>
-        </li>
-        <li key="type">
-          <em>Type: </em>
+      <section className="poke-properties">
+        <section className="poke-number">
+          <em>N.º: </em>
+          <span> {this.props.id}</span>
+        </section>
+        <section key="type">
+          <em>Pokémon </em>
           <span>{this.props.type}</span>
-        </li>
-        <li key="average-weigth">
-          <em>{this
-            .props
-            .averageWeight
-            .measurementUnit
-            .toUpperCase()}: </em>
+        </section>
+        <section key="average-weigth">
+          <em>peso </em>
           <span>{this.props.averageWeight.value}</span>
-        </li>
-      </ul>
+          <span>{this
+          .props
+          .averageWeight
+          .measurementUnit}</span>
+        </section>
+      </section>
     )
   }
 }

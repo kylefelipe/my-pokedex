@@ -2,21 +2,8 @@
   text-align: center;
 }
 
-
 .pokemon , .card {
   display: flex;
-}
-
-.poke-container {
-  align-items: center;
-  border: 2px solid #f1faee;
-  border-radius: 25px;
-  display: flex;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding-bottom: 10px;
-  padding-top: 10px ;
-  flex-direction: column;
 }
 
 .more-info {
@@ -31,19 +18,24 @@
 }
 
 .poke-properties {
-  list-style-type: none;
-  min-width: 200px;
-  padding-left: 15px;
+  background-color: cornsilk;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 2px solid #fdffb6;
+  display: inline-flex;
+  color: black;
+  font-size: 10px;
+  justify-content: space-between;
   margin: 0;
+  padding: 0;
+  width: 80%;
 }
 
 .pokecard-image {
   border: 2px solid #fdffb6;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   width: 80%;
-}
-
-li {
-  text-align: left;
 }
 
 .card {
@@ -52,6 +44,10 @@ li {
   border: 10px solid #fdffb6;
   border-radius: 20px;
   height: 350px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   width: 250px;
 }
 
