@@ -6,7 +6,7 @@ class PokeWeakStrongness extends React.Component {
       <section className="poke-weakstrong">
         <div className="weakness-container">
           <span>Weakness: </span>
-          <span className="weakness"> Weakness</span>
+          <span className="weakness"> Weak</span>
         </div>
         <span>"|"</span>
         <div className="strongness-container">
