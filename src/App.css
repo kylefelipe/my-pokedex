@@ -116,10 +116,12 @@ body {
 }
 
 .weakness-container,
-.strongness-container,
+.strongness-container ,
 .poke-retreat {
   display: flex;
   justify-content: space-between;
+  padding-right: 2px;
+  padding-left: 2px;
 }
 
 .poke-weakstrong,
