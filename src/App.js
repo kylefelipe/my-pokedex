@@ -26,23 +26,30 @@ class App extends Component {
   constructor(props) {
     super (props);
     this.state = {
-      filter: "Fire",  
+      filter: "All",  
       pokeIndex: 0
     };
-    // this.state = { pokeIndex: 0 };
   }
 
   setFilterValue = (labelText) => {
     this.setState({
-      filter: labelText
+      filter: labelText,
+      pokeIndex: 0,
     })
   }
   
   goToNext = () => {
-    const pokeQt = data.filter(({ type }) => type === this.state.filter).length;
+    const pokeQt = data.filter(({ type }) => this.state.filter === 'All' ? true : this.state.filter === type).length;
     this.setState((state) => ({
       pokeIndex: state.pokeIndex === pokeQt - 1? 0 : state.pokeIndex + 1
     }))
+    this.getTypes();
+  }
+
+  getTypes = () => {
+    let pokeTypes = data.map(({ type }) => type);
+    pokeTypes = ['All', ...new Set(pokeTypes)]
+    return pokeTypes; 
   }
 
   render() {
@@ -58,19 +65,21 @@ class App extends Component {
         </header>
         <section className="pokecards-container">
           <Pokecard {...data
-          .filter(({ type }) => type === this.state.filter)[this.state.pokeIndex]}/>
+          .filter(({ type }) => this.state.filter === 'All' ? true : this.state.filter === type)[this.state.pokeIndex]}/>
+        </section>
+        <section className='poke-filters'>
+          <span>Filters</span>
+          {this.getTypes().map((type, index) => <MyFilterrButton
+              handleClick={this.setFilterValue}
+              key={index}
+              label={type} />
+          )}
         </section>
         <MyNextButton 
           className="next-pokemon"
           key="next-pokemon"
           handleClick={ this.goToNext }
           label="Next Pokemon" />
-        <MyFilterrButton
-          handleClick={this.setFilterValue}
-          key="fire-button" label='Fire'/>
-        <MyFilterrButton
-        handleClick={this.setFilterValue}
-        key="psychic-button" label='Psychic'/>
       </div>
     );
   }
