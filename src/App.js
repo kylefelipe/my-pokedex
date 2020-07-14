@@ -18,7 +18,8 @@ class MyNextButton extends Component {
     return <button onClick={() => {
       this.props.handleClick();
     }
-      }>{this.props.label}</button>
+      }
+      disabled={this.props.disabled()}>{this.props.label}</button>
   }
 }
 
@@ -26,13 +27,14 @@ class App extends Component {
   constructor(props) {
     super (props);
     this.state = {
-      filter: "All",  
-      pokeIndex: 0
+      filter: "All",
+      pokeIndex: 0,
     };
   }
 
   setFilterValue = (labelText) => {
     this.setState({
+      pokeQt: data.filter(({ type }) => this.state.filter === 'All' ? true : this.state.filter === type).length,
       filter: labelText,
       pokeIndex: 0,
     })
@@ -44,6 +46,11 @@ class App extends Component {
       pokeIndex: state.pokeIndex === pokeQt - 1? 0 : state.pokeIndex + 1
     }))
     this.getTypes();
+  }
+
+  disableNext = () => {
+    return data.filter(({ type }) => 
+      this.state.filter === 'All' ? true : this.state.filter === type).length > 1 ? false : true
   }
 
   getTypes = () => {
@@ -79,6 +86,7 @@ class App extends Component {
           className="next-pokemon"
           key="next-pokemon"
           handleClick={ this.goToNext }
+          disabled={ this.disableNext }
           label="Next Pokemon" />
       </div>
     );
